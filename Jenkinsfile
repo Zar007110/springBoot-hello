@@ -16,12 +16,13 @@ pipeline {
                 sh 'docker run zah007110/springboot-hello ./mvnw test'
             }
         }
-        stage('Push') {
+        stage('Push') {   
+        
             steps {
-                withCredentials([string(credentialsId: 'docker-hub-credentials', variable: 'DOCKER_HUB_CREDENTIALS')]) {
-                    sh 'docker login -u zah007110 -p $DOCKER_HUB_CREDENTIALS'
-                    sh 'docker push zah007110/springboot-hello'
+                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD%'
                 }
+                sh 'docker push zah007110/springboot-hello:latest'
             }
         }
         stage('Deploy') {
