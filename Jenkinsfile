@@ -17,7 +17,10 @@ pipeline {
                 sh 'docker run zah007110/springboot-hello ./mvnw test'
             }
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> 83fc42bc6a67cf94f064c0fa4c0e16ab9f054dd8
         stage('Push') {   
         
             steps {
