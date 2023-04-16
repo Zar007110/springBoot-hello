@@ -48,7 +48,7 @@
             </plugin>
                  
         </plugins>
-             <finalNAME>spring</finalNAME>   
+                
          
          </build>
          
