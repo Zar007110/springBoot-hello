@@ -16,4 +16,3 @@ spec:
                 name: myapp
                 port:
                   name: http
-                  number: 8081
