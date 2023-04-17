@@ -15,6 +15,4 @@ spec:
               service:
                 name: myapp
                 port:
-                  name: http
-            port:
-            targetPort: 8081
+                  number: 8081
