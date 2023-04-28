@@ -1,19 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: myapp
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: springboot-k8s-svc
 spec:
-  replicas: 1
   selector:
-    matchLabels:
-      app: myapp
-  template:
-    metadata:
-      labels:
-        app: myapp
-    spec:
-      containers:
-        - name: myapp
-          image: zah007110/springboot-hello
-          ports:
-            - containerPort: 8081
+    app: spring-boot-k8s
+  ports:
+    - protocol: "TCP"
+      port: 8082
+      targetPort: 8082
+  type: NodePort 
